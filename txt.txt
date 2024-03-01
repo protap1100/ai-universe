@@ -22,3 +22,32 @@
 
 
                             <h1 class="text-xl text-gray-500">3.Text generation</h1>
+
+
+
+
+
+
+
+
+
+                            <div class="flex gap-5">
+                    <div class="border rounded-xl border-red-400">
+                        <div class="p-4">
+                            <h1 class="text-2xl font-bold">ChatGPT is an AI-powered chatbot platform that uses OpenAI's GPT technology to simulate human conversation</h1>
+                        </div>
+                        <div>
+
+                        </div>
+                    </div>
+                    <div>
+                        <img src="https://img.olhardigital.com.br/wp-content/uploads/2023/01/chatgpt_assistente.jpg" alt="">
+                        <div class="text-center px-5">
+                            <h1>Hi How are you doing today</h1>
+                            <h1>I'm doing well, thank you for asking. How can I assist you today?</h1>
+                        </div>
+                    </div>
+                </div>
+
+
+                 // ${aiSingleDataFeature}

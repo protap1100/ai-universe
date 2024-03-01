@@ -21,7 +21,7 @@ function displayData(aiData){
        div.classList = 'p-4 bg-gray-50  border border-gray-500 rounded-xl'; 
        div.innerHTML = `
                     <div class="card card-compact w-96 mx-auto bg-base-100  flex flex-col gap-5" >
-                        <figure><img src="${allData.image}" alt='Ai Image'/></figure>
+                        <figure><img src="${allData.image || 'No Image Available' }" /></figure>
                         <h2 class="card-title font-bold text-3xl">Features</h2>
                             <div>
                                 ${features}
@@ -53,8 +53,83 @@ const  singleData  = async (id) =>{
 }
 
 const showSingleData = (aiSingleData) =>{
-    console.log(aiSingleData);
-    my_modal_5.showModal()
+    console.log(aiSingleData.data);
+    my_modal_4.showModal();
+
+    const aiSingleDataFeature = aiSingleData.data.features;  //Feature
+
+
+    const pricingData = aiSingleData.data.pricing;
+
+    const textColors = ['#03A30A', '#F28927', '#EB5757']; // Add more colors as needed
+    
+    const pricing = pricingData.map((data, index) => {
+        const textColor = textColors[index % textColors.length]; // Use the colors in a cyclic manner
+    
+        const singlePricing = `<div class="bg-white p-5 text-center font-bold text-2xl" style="color: ${textColor}">${data.plan} ${data.price}</div>`;
+        return singlePricing;
+    });
+
+    const integrationsData = aiSingleData.data.integrations.map((data)=>{
+        return `<h1 class="text-xl">${data}</h1>`;
+    });
+
+    const integrationsText = integrationsData.join('');
+
+    // console.log(aiSingleData.data);
+ 
+
+
+
+    const singleData = document.getElementById('single-details');
+    singleData.innerHTML = `
+                    <div class=" absolute  right-0 top-0">
+                    <form method="dialog" class="text-center mb-10">
+                        <button class="btn border-none rounded-3xl text-white  bg-[#EB5757]"><i class="fa-solid fa-xmark"></i></button>
+                    </form>
+                </div>
+                <div class="flex gap-5 bg-[#EB57570D] mt-16">
+                    <div class="flex-1 border rounded-xl border-red-400 p-7">
+                        <div class="p-4">
+                            <h1 class="text-2xl font-bold">${aiSingleData.data.description}</h1>
+                        </div>
+                        <div class="flex gap-2 items-center">
+                            ${pricing}                            
+                        </div>
+                        <div class="flex justify-between mt-10">
+                            <div class="text-center">
+                                <h1 class="text-4xl font-bold" >Features</h1>
+                                <h1 class="text-xl text-gray-500">${aiSingleDataFeature}</h1>
+                                <h1 class="text-xl text-gray-500">3.Text generation</h1>
+                                <h1 class="text-xl text-gray-500">3.Text generation</h1>
+                            </div>
+                            <div class="text-center">
+                                <h1 class="text-4xl font-bold" >Integrations</h1>
+                                ${integrationsText}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-1 border border-red-300 p-2 rounded-xl">
+                        <div>
+                            <div class="relative">
+                            <div class="z-10 absolute top-4 right-4">
+                                <h1 class="bg-red-500 px-3 py-2 w-32 rounded-xl text-white">94% Accuracy</h1>
+                            </div>
+                            <div class="z-0 absolute right-0">
+                                <img src="${aiSingleData.data.image_link[0]} " alt="">
+                            </div>
+                             </div>
+                        </div>
+                        
+                        <div class="text-center px-5 relative top-80">
+                            <h1 class="text-3xl font-bold">${aiSingleData.data.input_output_examples[0].input}</h1>
+                            <h1 class="text-xl font-normal mt-5">${aiSingleData.data.input_output_examples[0].output}</h1>
+                        </div>
+                      </div>
+                  </div>
+    `;  
+
+
 }
 
 
