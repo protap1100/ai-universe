@@ -23,9 +23,11 @@
 
                             <h1 class="text-xl text-gray-500">3.Text generation</h1>
 
+                <ul class="feature-list list-decimal">
+                      ${features.map((feature) => `<li>${feature}</li>`).join("")}
+                </ul>
 
-
-
+ ${featureList}
 
 
 

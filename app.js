@@ -14,14 +14,14 @@ function displayData(aiData){
         // Looping The array Features 
        const features =  allData.features.map((features,index) => {
                 return `<h1 class="text-xl text-gray-500">${index + 1} ${features}</h1>`;
-        });
+        }).join('');
         //1. get the id
        const  idCardDetails =  document.getElementById('ai-card-details');
        const  div = document.createElement('div');
        div.classList = 'p-4 bg-gray-50  border border-gray-500 rounded-xl'; 
        div.innerHTML = `
                     <div class="card card-compact w-96 mx-auto bg-base-100  flex flex-col gap-5" >
-                        <figure><img src="${allData.image || 'No Image Available' }" /></figure>
+                        <figure><img src="${allData.image ? allData.image :  'No Image Available' }" /></figure>
                         <h2 class="card-title font-bold text-3xl">Features</h2>
                             <div>
                                 ${features}
@@ -67,7 +67,7 @@ const showSingleData = (aiSingleData) =>{
         const textColor = textColors[index % textColors.length]; 
         const singlePricing = `<div class="bg-white p-5 text-center font-bold text-2xl" style="color: ${textColor}">${data.plan} ${data.price}</div>`;
         return singlePricing;
-    });
+    }).join('');
 
     const integrationsData = aiSingleData.data.integrations.map((data)=>{
         return `<h1 class="text-xl">${data}</h1>`;
@@ -78,8 +78,14 @@ const showSingleData = (aiSingleData) =>{
     // console.log(aiSingleData.data);
     
     const accuracy = aiSingleData.data.accuracy.score * 100;
-    console.log(accuracy)
+    // console.log(accuracy);
 
+    
+    const features = aiSingleData.data.features;
+    console.log(features);
+
+    // const featureListItems = Object.entries(features).map((feature) => `<li>${feature}</li>`).join("");
+    // const featureList = `<ul>${featureListItems}</ul>`;
 
 
     const singleData = document.getElementById('single-details');
@@ -100,9 +106,9 @@ const showSingleData = (aiSingleData) =>{
                         <div class="flex justify-between mt-10">
                             <div class="text-center">
                                 <h1 class="text-4xl font-bold" >Features</h1>
-                                <h1 class="text-xl text-gray-500">${aiSingleDataFeature}</h1>
-                                <h1 class="text-xl text-gray-500">3.Text generation</h1>
-                                <h1 class="text-xl text-gray-500">3.Text generation</h1>
+                                <ul class="feature-list list-decimal">
+                                      ${features.map((feature) => `<li>${feature}</li>`).join("")}
+                                </ul>
                             </div>
                             <div class="text-center">
                                 <h1 class="text-4xl font-bold" >Integrations</h1>
@@ -132,7 +138,9 @@ const showSingleData = (aiSingleData) =>{
 }
 
 
-
+function dataSort(){
+    console.log('hello world');
+}
 
 
 getAiData();
