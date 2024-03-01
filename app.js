@@ -61,11 +61,10 @@ const showSingleData = (aiSingleData) =>{
 
     const pricingData = aiSingleData.data.pricing;
 
-    const textColors = ['#03A30A', '#F28927', '#EB5757']; // Add more colors as needed
+    const textColors = ['#03A30A', '#F28927', '#EB5757']; 
     
     const pricing = pricingData.map((data, index) => {
-        const textColor = textColors[index % textColors.length]; // Use the colors in a cyclic manner
-    
+        const textColor = textColors[index % textColors.length]; 
         const singlePricing = `<div class="bg-white p-5 text-center font-bold text-2xl" style="color: ${textColor}">${data.plan} ${data.price}</div>`;
         return singlePricing;
     });
@@ -77,7 +76,9 @@ const showSingleData = (aiSingleData) =>{
     const integrationsText = integrationsData.join('');
 
     // console.log(aiSingleData.data);
- 
+    
+    const accuracy = aiSingleData.data.accuracy.score * 100;
+    console.log(accuracy)
 
 
 
@@ -113,7 +114,7 @@ const showSingleData = (aiSingleData) =>{
                         <div>
                             <div class="relative">
                             <div class="z-10 absolute top-4 right-4">
-                                <h1 class="bg-red-500 px-3 py-2 w-32 rounded-xl text-white">94% Accuracy</h1>
+                                <h1 class="bg-red-500 px-3 py-2 w-32 rounded-xl text-white">${accuracy}% Accuracy</h1>
                             </div>
                             <div class="z-0 absolute right-0">
                                 <img src="${aiSingleData.data.image_link[0]} " alt="">
@@ -128,8 +129,6 @@ const showSingleData = (aiSingleData) =>{
                       </div>
                   </div>
     `;  
-
-
 }
 
 
