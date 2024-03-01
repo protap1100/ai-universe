@@ -1,0 +1,24 @@
+            <div class="p-4 bg-gray-50  border border-black rounded-xl">
+              <div class="card card-compact w-96 mx-auto bg-base-100  flex flex-col gap-5">
+                <figure><img src="${allData.image}" /></figure>
+                <h2 class="card-title font-bold text-3xl">Features</h2>
+                    <div>
+                    <h1 class="text-xl text-gray-500">1.Natural language processing</h1>
+                    <h1 class="text-xl text-gray-500">2.Contextual understanding</h1>
+                    <h1 class="text-xl text-gray-500">3.Text generation</h1>
+                    </div>
+                    <div class="border border-gray-400 "></div>
+                    <div class="flex items-center justify-between">
+                    <div>
+                        <h1 class="font-bold text-3xl mt-5">Chat Gpt</h1>
+                        <h1 class="mt-5">  <i class="fa-solid fa-calendar-days"></i> <span>11/1/2022</span> </h1>
+                    </div>
+                    <div class="mt-5">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+
+                            <h1 class="text-xl text-gray-500">3.Text generation</h1>

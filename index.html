@@ -1,13 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ai Universe</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-   
+    <header class="container mx-auto mt-10">
+        <div class="flex justify-center items-center flex-col gap-5">
+            <h1 class="text-4xl font-bold text-center">Ai Universe Hub</h1>
+            <button class="btn bg-[#EB5757] text-white rounded-2xl" >Sort By Date</button>
+        </div>
+    </header>
+
+    <main class="container mx-auto mt-10">
+       <section>
+        <div class="grid lg:grid-cols-3 gap-10 md:grid-cols-2 grid-cols-1" id="ai-card-details">
+            <!-- Dynamically Added With Api's  -->
+        </div>
+       </section>
+        <section>
+            <!-- Open the modal using ID.showModal() method -->
+            <button class="btn" onclick="my_modal_5.showModal()">open modal</button>
+            <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+            <div class="modal-box">
+               
+                <form method="dialog">
+                    <!-- if there is a button in form, it will close the modal -->
+                    <button class="btn">Close</button>
+                </form>
+                </div>
+            </div>
+            </dialog>
+        </section>
+    </main>
+
+    <footer class="text-center my-10">
+        <button class="btn bg-[#EB5757] text-white rounded-2xl" >See More</button>
+    </footer>
 
     <script src="app.js" ></script>
 </body>
